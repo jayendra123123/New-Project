@@ -4,14 +4,14 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
-    title: 'River CleanUp',
-    description: 'River CleanUp now includes explanation about maps, email notifications, user login, and full-stack features.',
-    fullDescription: 'River CleanUp is a full-stack web application developed to streamline the process of organizing and managing river cleaning events. The platform allows users to register, log in, and participate in environmental cleanup activities by locating events near them via an interactive map. Built using MongoDB, Express, React, and Node.js, the app features real-time event creation, participation tracking, and automated email notifications to ensure participants stay informed. This project reflects my commitment to environmental causes while showcasing my skills in backend integration, user authentication, and responsive UI development.',
-    live: 'https://clean-up-rw7s.onrender.com',
-    code: 'https://github.com/jayendra123123/clean-up',
-    tech: ['MongoDB', 'Express', 'React', 'Node.js'],
-    image: 'river-cleanup.png',
-    logo: 'hi.png'
+    title: 'Plant Disease Detection',
+    description: 'Plant Disease Detection utilizes advanced image recognition to identify plant diseases.',
+    fullDescription: 'Plant Disease Detection is a cutting-edge application that leverages machine learning algorithms to analyze images of plants and detect various diseases. Users can upload photos of their plants, and the app will provide instant feedback on potential issues, along with recommended treatments. This project showcases my skills in AI integration, image processing, and user-centered design.',
+    live: 'https://plant-gilt.vercel.app',
+    code: 'https://github.com/jayendra123123/plant',
+    tech: ['React', 'TensorFlow', 'CSS'],
+    image: 'plant_disease_detection.png',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlqignodfMhTW7USiXQ3Hi8Rzr503sOgl_iw&s'
   },
   {
     title: 'Movie Review',
@@ -22,6 +22,16 @@ const projects = [
     tech: ['React', 'TMDB API', 'CSS'],
     image: 'movie-review.png',
     logo: 'https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg'
+  },
+  {
+    title: 'River CleanUp',
+    description: 'River CleanUp now includes explanation about maps, email notifications, user login, and full-stack features.',
+    fullDescription: 'River CleanUp is a full-stack web application developed to streamline the process of organizing and managing river cleaning events. The platform allows users to register, log in, and participate in environmental cleanup activities by locating events near them via an interactive map. Built using MongoDB, Express, React, and Node.js, the app features real-time event creation, participation tracking, and automated email notifications to ensure participants stay informed. This project reflects my commitment to environmental causes while showcasing my skills in backend integration, user authentication, and responsive UI development.',
+    live: 'https://clean-up-rw7s.onrender.com',
+    code: 'https://github.com/jayendra123123/clean-up',
+    tech: ['MongoDB', 'Express', 'React', 'Node.js'],
+    image: 'river-cleanup.png',
+    logo: 'hi.png'
   },
   {
     title: 'Calculator',

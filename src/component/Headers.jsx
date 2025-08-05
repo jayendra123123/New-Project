@@ -68,7 +68,7 @@ export default function Headers() {
       </header>
 
       {/* Page Content */}
-      <main className="mt-20 scroll-smooth">
+      <main className="scroll-smooth">
         <section id="home">
           <Home />
         </section>

@@ -14,6 +14,9 @@ export default function Home() {
             minHeight: "100vh",
             minWidth: "100vw",
           }}
+          onError={(e) => {
+            e.target.style.display = 'none';
+          }}
         />
       </div>
 
