@@ -6,8 +6,6 @@ const Footer = () => {
   return (
     <footer className="w-full py-10 px-4 sm:px-8 border-t border-dark-text/10 dark:border-white/10 bg-white dark:bg-[#221f10]">
       <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        
-        {/* Left Side - Logo & Copyright */}
         <div className="flex flex-col items-center md:items-start gap-2">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-2xl text-primary">emoji_emotions</span>
@@ -17,8 +15,6 @@ const Footer = () => {
             © {currentYear} Jayendra Malla. All rights reserved.
           </p>
         </div>
-
-        {/* Right Side - Navigation Links */}
         <nav className="flex flex-wrap justify-center gap-4">
           {[
             { name: 'Work', href: '#work' },

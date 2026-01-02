@@ -11,20 +11,49 @@ const ContactForm = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [status, setStatus] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus('Sending...');
     setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+    setIsSuccess(false);
+
+    try {
+      const response = await fetch("https://formcarry.com/s/hZoEzFfKBYx", {
+        method: 'POST',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ 
+          ...formData,
+          _replyto: formData.email 
+        })
+      });
+
+      const result = await response.json();
+      if (result.code === 200) {
+        setStatus('Message Sent Successfully!');
+        setIsSuccess(true);
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => {
+            setIsSuccess(false);
+            setStatus('');
+        }, 5000);
+      } else if (result.code === 422) {
+        setStatus('Validation failed: ' + result.message);
+        setIsSuccess(false);
+      } else {
+        setStatus('Failed to send: ' + result.message);
+        setIsSuccess(false);
+      }
+    } catch (error) {
+      setStatus('Error: ' + (error.message || 'Something went wrong.'));
+      setIsSuccess(false);
+    } finally {
+        setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -36,9 +65,6 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit} className="flex flex-col gap-6 relative">
       {/* Name Input */}
       <div className="group relative">
-        <label className="block text-dark-text dark:text-white text-lg font-bold mb-2 ml-4 group-focus-within:text-primary transition-colors">
-          What do I call you?
-        </label>
         <div className="relative">
           <div className="absolute left-5 top-1/2 -translate-y-1/2 text-dark-text/30 dark:text-white/30 pointer-events-none group-focus-within:text-primary transition-colors">
             <Icon name="face" />
@@ -49,7 +75,7 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             className="w-full h-16 pl-14 pr-6 rounded-full bg-white dark:bg-white/5 border-2 border-dark-text dark:border-white/20 text-dark-text dark:text-white text-lg font-medium placeholder:text-dark-text/30 dark:placeholder:text-white/30 focus:outline-none focus:border-primary focus:ring-0 focus:shadow-comic transition-all duration-200 ease-out"
-            placeholder="Captain Awesome"
+            placeholder="Name"
             type="text"
           />
         </div>
@@ -57,9 +83,6 @@ const ContactForm = () => {
 
       {/* Email Input */}
       <div className="group relative">
-        <label className="block text-dark-text dark:text-white text-lg font-bold mb-2 ml-4 group-focus-within:text-primary transition-colors">
-          Where can I reach you?
-        </label>
         <div className="relative">
           <div className="absolute left-5 top-1/2 -translate-y-1/2 text-dark-text/30 dark:text-white/30 pointer-events-none group-focus-within:text-primary transition-colors">
             <Icon name="alternate_email" />
@@ -78,9 +101,6 @@ const ContactForm = () => {
 
       {/* Message Input */}
       <div className="group relative">
-        <label className="block text-dark-text dark:text-white text-lg font-bold mb-2 ml-4 group-focus-within:text-primary transition-colors">
-          What's the plan?
-        </label>
         <div className="relative">
           <div className="absolute left-5 top-6 text-dark-text/30 dark:text-white/30 pointer-events-none group-focus-within:text-primary transition-colors">
             <Icon name="edit_note" />
@@ -91,7 +111,7 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             className="w-full min-h-40 pl-14 pr-6 py-5 rounded-3xl bg-white dark:bg-white/5 border-2 border-dark-text dark:border-white/20 text-dark-text dark:text-white text-lg font-medium placeholder:text-dark-text/30 dark:placeholder:text-white/30 resize-none focus:outline-none focus:border-primary focus:ring-0 focus:shadow-comic transition-all duration-200 ease-out"
-            placeholder="Tell me about your wild ideas..."
+            placeholder="Your Message Here..."
           />
         </div>
       </div>
@@ -99,10 +119,10 @@ const ContactForm = () => {
       {/* Submit Character Button */}
       <div className="pt-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex-1">
-          {isSuccess && (
-            <p className="text-green-600 dark:text-green-400 font-bold flex items-center gap-2 fade-in">
-               <Icon name="check_circle" className="text-xl" />
-               Success! I'll be in touch soon.
+          {status && !isSubmitting && (
+            <p className={`font-bold flex items-center gap-2 fade-in ${isSuccess ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+               <Icon name={isSuccess ? "check_circle" : "error"} className="text-xl" />
+               {status}
             </p>
           )}
         </div>
