@@ -1,20 +1,35 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './component/Header.jsx';
 import Hero from './component/Hero.jsx';
 import ProjectGrid from './component/ProjectGrid.jsx';
 import OriginStory from './component/OriginStory.jsx';
 import ContactForm from './component/ContactForm.jsx';
 import Footer from './component/Footer.jsx';
+import Loading from './component/Loading.jsx';
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showResume, setShowResume] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time for the animation
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500); // 2.5 seconds to enjoy the animation
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
     document.documentElement.classList.toggle('dark');
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
