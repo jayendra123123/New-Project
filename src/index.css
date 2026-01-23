@@ -5,3 +5,25 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Smooth scrolling for all browsers */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Optimize scroll performance */
+body {
+  overflow-x: hidden;
+  scroll-padding-top: 80px; /* Offset for fixed header if any */
+}
+
+/* Add momentum scrolling for iOS */
+body,
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Remove default scroll snap behavior to ensure smooth scrolling */
+section {
+  scroll-margin-top: 80px;
+}

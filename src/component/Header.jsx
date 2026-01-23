@@ -9,7 +9,7 @@ const Header = ({ toggleDarkMode, isDarkMode, onOpenResume }) => {
         {/* Logo */}
         <div 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center gap-3 bg-white dark:bg-[#332f1d] px-5 py-2 rounded-full border-2 border-dark-text dark:border-white/20 shadow-comic transition-transform hover:-rotate-2 cursor-pointer"
+          className="flex items-center gap-3 bg-white dark:bg-bg-card-dark px-5 py-2 rounded-full border-2 border-dark-text dark:border-white/20 shadow-comic transition-transform hover:-rotate-2 cursor-pointer"
         >
           <span className="material-symbols-outlined text-3xl text-primary">emoji_emotions</span>
           <h2 className="text-lg font-black tracking-tight dark:text-white">Jayendra Malla</h2>
@@ -17,7 +17,7 @@ const Header = ({ toggleDarkMode, isDarkMode, onOpenResume }) => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-4">
-          <button onClick={toggleDarkMode} className="p-2 rounded-full bg-white dark:bg-[#332f1d] border-2 border-dark-text dark:border-white/20 shadow-comic-sm hover:shadow-comic transition-all mr-2">
+          <button onClick={toggleDarkMode} className="p-2 rounded-full bg-white dark:bg-bg-card-dark border-2 border-dark-text dark:border-white/20 shadow-comic-sm hover:shadow-comic transition-all mr-2">
             <span className="material-symbols-outlined text-xl">
               {isDarkMode ? 'light_mode' : 'dark_mode'}
             </span>
@@ -25,13 +25,14 @@ const Header = ({ toggleDarkMode, isDarkMode, onOpenResume }) => {
           {[
             { name: 'Work', href: '#work', icon: 'grid_view' },
             { name: 'About Me', href: '#about-me', icon: 'person' },
-            { name: 'Skills', href: '#skills', icon: 'auto_awesome', isButton: true }
+            { name: 'Skills', href: '#skills-certificates', icon: 'code'},
+            { name: 'Certificates', href: '#skills-certificates', icon: 'workspace_premium'}
           ].map((link) => (
             link.isButton ? (
               <button
                 key={link.name}
                 onClick={onOpenResume}
-                className="px-5 py-2 bg-white dark:bg-[#332f1d] dark:text-white rounded-full border-2 border-dark-text dark:border-white/20 font-bold text-sm shadow-comic-sm hover:shadow-comic hover:-translate-y-1 transition-all duration-200 flex items-center gap-2"
+                className="px-5 py-2 bg-white dark:bg-bg-card-dark dark:text-white rounded-full border-2 border-dark-text dark:border-white/20 font-bold text-sm shadow-comic-sm hover:shadow-comic hover:-translate-y-1 transition-all duration-200 flex items-center gap-2"
               >
                 <span className="material-symbols-outlined text-lg">{link.icon}</span>
                 {link.name}
@@ -40,7 +41,7 @@ const Header = ({ toggleDarkMode, isDarkMode, onOpenResume }) => {
               <a 
                 key={link.name}
                 href={link.href}
-                className="px-5 py-2 bg-white dark:bg-[#332f1d] dark:text-white rounded-full border-2 border-dark-text dark:border-white/20 font-bold text-sm shadow-comic-sm hover:shadow-comic hover:-translate-y-1 transition-all duration-200 flex items-center gap-2"
+                className="px-5 py-2 bg-white dark:bg-bg-card-dark dark:text-white rounded-full border-2 border-dark-text dark:border-white/20 font-bold text-sm shadow-comic-sm hover:shadow-comic hover:-translate-y-1 transition-all duration-200 flex items-center gap-2"
               >
                 <span className="material-symbols-outlined text-lg">{link.icon}</span>
                 {link.name}
@@ -57,14 +58,14 @@ const Header = ({ toggleDarkMode, isDarkMode, onOpenResume }) => {
 
         {/* Mobile Toggle */}
         <div className="md:hidden flex items-center gap-2">
-           <button onClick={toggleDarkMode} className="p-2 rounded-full bg-white dark:bg-[#332f1d] border-2 border-dark-text dark:border-white/20 shadow-comic-sm">
+           <button onClick={toggleDarkMode} className="p-2 rounded-full bg-white dark:bg-bg-card-dark border-2 border-dark-text dark:border-white/20 shadow-comic-sm">
             <span className="material-symbols-outlined text-xl dark:text-white">
               {isDarkMode ? 'light_mode' : 'dark_mode'}
             </span>
           </button>
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex items-center justify-center size-12 bg-white dark:bg-[#332f1d] rounded-full border-2 border-dark-text dark:border-white/20 shadow-comic dark:text-white"
+            className="flex items-center justify-center size-12 bg-white dark:bg-bg-card-dark rounded-full border-2 border-dark-text dark:border-white/20 shadow-comic dark:text-white"
           >
             <span className="material-symbols-outlined">{isMenuOpen ? 'close' : 'menu'}</span>
           </button>
@@ -78,8 +79,8 @@ const Header = ({ toggleDarkMode, isDarkMode, onOpenResume }) => {
             {[
               { name: 'Work', href: '#work', icon: 'grid_view' },
               { name: 'About Me', href: '#about-me', icon: 'person' },
-              { name: 'Skills', href: '#skills', icon: 'auto_awesome' },
-              { name: 'Contact', href: '#contact', icon: 'mail' }
+              { name: 'Skills', href: '#skills-certificates', icon: 'code' },
+              { name: 'Certificates', href: '#skills-certificates', icon: 'workspace_premium' },
             ].map((link) => (
               <a 
                 key={link.name}

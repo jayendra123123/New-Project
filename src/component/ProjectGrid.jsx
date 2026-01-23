@@ -55,7 +55,7 @@ const ProjectGrid = () => {
           {projects.map((project, idx) => (
             <div 
               key={idx}
-              className={`group relative flex flex-col bg-white dark:bg-[#332f1d] p-3 pb-6 rounded-xl border-2 border-dark-text dark:border-white/20 shadow-comic hover:shadow-comic-hover hover:-translate-y-2 hover:rotate-0 transition-all duration-300 transform ${project.rotation}`}
+              className={`group relative flex flex-col bg-white dark:bg-bg-card-dark p-3 pb-6 rounded-xl border-2 border-dark-text dark:border-white/20 shadow-comic hover:shadow-comic-hover hover:-translate-y-2 hover:rotate-0 transition-all duration-300 transform ${project.rotation}`}
             >
               <div 
                 className="aspect-[4/3] w-full rounded-lg bg-cover bg-center border-2 border-dark-text mb-4 overflow-hidden relative"

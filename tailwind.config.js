@@ -9,10 +9,14 @@ module.exports = {
       colors: {
         primary: '#FFC107', // Amber for a playful/cartoon feel
         'dark-text': '#000000',
+        'bg-light': '#f9f9f9',
+        'bg-dark': '#1a1812',
+        'bg-card-dark': '#332f1d',
       },
       boxShadow: {
         'comic': '4px 4px 0px 0px #000000',
         'comic-hover': '2px 2px 0px 0px #000000',
+        'comic-sm': '2px 2px 0px 0px #000000',
       },
       keyframes: {
         'cartoon-bounce': {

@@ -4,6 +4,7 @@ import Header from './component/Header.jsx';
 import Hero from './component/Hero.jsx';
 import ProjectGrid from './component/ProjectGrid.jsx';
 import OriginStory from './component/OriginStory.jsx';
+import SkillsAndCertificates from './component/SkillsAndCertificates.jsx';
 import ContactForm from './component/ContactForm.jsx';
 import Footer from './component/Footer.jsx';
 import Loading from './component/Loading.jsx';
@@ -48,6 +49,7 @@ const App = () => {
 
         <ProjectGrid />
         <OriginStory showResume={showResume} setShowResume={setShowResume} />
+        <SkillsAndCertificates />
         
         {/* Contact Section */}
         <section id="contact-form" className="w-full py-10 px-4 sm:px-8 bg-white dark:bg-[#221f10] border-t-4 border-dark-text dark:border-white/10">
@@ -81,7 +83,7 @@ const App = () => {
 
             {/* Right Side - Form */}
             <div className="flex-1 w-full">
-              <div className="bg-bg-light dark:bg-[#332f1d] p-6 sm:p-8 rounded-2xl border-4 border-dark-text dark:border-white/20 shadow-comic">
+              <div className="bg-bg-light dark:bg-bg-card-dark p-6 sm:p-8 rounded-2xl border-4 border-dark-text dark:border-white/20 shadow-comic">
                 <ContactForm />
               </div>
             </div>

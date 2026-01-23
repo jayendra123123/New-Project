@@ -45,7 +45,7 @@ const Hero = () => {
             <a 
               href="/Resume.pdf" 
               download="Jayendra_Malla_Resume.pdf"
-              className="flex items-center gap-2 h-14 px-8 bg-white dark:bg-[#332f1d] text-gray-800 dark:text-white rounded-full border-2 border-dark-text dark:border-white/20 font-bold text-lg shadow-comic hover:shadow-comic-hover hover:-translate-y-1 transition-all"
+              className="flex items-center gap-2 h-14 px-8 bg-white dark:bg-bg-card-dark text-gray-800 dark:text-white rounded-full border-2 border-dark-text dark:border-white/20 font-bold text-lg shadow-comic hover:shadow-comic-hover hover:-translate-y-1 transition-all"
             >
               <span>Download Resume</span>
             </a>
@@ -77,7 +77,7 @@ const Hero = () => {
             />
 
             {/* Speech Bubble */}
-            <div className="absolute -top-4 -left-4 bg-white dark:bg-[#332f1d] px-4 py-2 rounded-xl rounded-br-none border-2 border-dark-text dark:border-white/20 shadow-comic transform -rotate-6 z-20">
+            <div className="absolute -top-4 -left-4 bg-white dark:bg-bg-card-dark px-4 py-2 rounded-xl rounded-br-none border-2 border-dark-text dark:border-white/20 shadow-comic transform -rotate-6 z-20">
               <p className="font-bold text-sm text-gray-800 dark:text-white">
                 Design is fun! ✏️
               </p>
