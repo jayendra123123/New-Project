@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './component/Header.jsx';
 import Hero from './component/Hero.jsx';
-import ProjectGrid from './component/ProjectGrid.jsx';
+import ProjectShowcase from './component/ProjectShowcase.jsx';
 import OriginStory from './component/OriginStory.jsx';
 import SkillsAndCertificates from './component/SkillsAndCertificates.jsx';
 import ContactForm from './component/ContactForm.jsx';
@@ -47,7 +47,7 @@ const App = () => {
           <div className="absolute -bottom-[100px] left-1/2 -translate-x-1/2 w-[120%] h-[200px] bg-white dark:bg-bg-dark border-t-4 border-dark-text dark:border-white/10 rounded-[50%]"></div>
         </div>
 
-        <ProjectGrid />
+        <ProjectShowcase />
         <OriginStory showResume={showResume} setShowResume={setShowResume} />
         <SkillsAndCertificates />
         
