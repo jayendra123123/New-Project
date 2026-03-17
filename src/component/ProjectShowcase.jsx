@@ -124,6 +124,7 @@ const ProjectShowcase = () => {
                       {/* Content */}
                       <iframe
                         src={project.mobileUrl}
+                        title={`Mobile view of ${project.name}`}
                         className="w-full h-full border-0 transition-opacity duration-500 rounded-xl"
                         key={`mobile-${selectedProject}`}
                         loading="lazy"
@@ -197,6 +198,7 @@ const ProjectShowcase = () => {
                       <div className="flex-1 overflow-hidden">
                         <iframe
                           src={project.desktopUrl}
+                          title={`Desktop view of ${project.name}`}
                           className="w-full h-full border-0 transition-opacity duration-500"
                           key={selectedProject}
                           loading="lazy"
