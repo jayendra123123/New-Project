@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { SplitText, TextSwap } from '../animations/SplitText';
 import SocialIconHover from '../animations/SocialIconHover';
 

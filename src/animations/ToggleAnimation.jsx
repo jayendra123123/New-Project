@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 const ToggleAnimation = ({ title, children, icon, defaultOpen = false }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const contentRef = useRef(null);
-  const heightRef = useRef(null);
 
   // Handle expand/collapse animation
   useEffect(() => {
@@ -58,7 +57,6 @@ const ToggleAnimation = ({ title, children, icon, defaultOpen = false }) => {
         className="w-full p-6 sm:p-8 flex items-center justify-between hover:bg-primary/5 dark:hover:bg-primary/10 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-bg-dark"
         aria-expanded={isOpen}
         aria-controls={`content-${title}`}
-        role="button"
         tabIndex={0}
       >
         <div className="flex items-center gap-4 flex-1">
