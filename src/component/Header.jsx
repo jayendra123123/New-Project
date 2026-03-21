@@ -12,7 +12,7 @@ const Header = ({ toggleDarkMode, isDarkMode, onOpenResume }) => {
           className="flex items-center gap-3 bg-white dark:bg-bg-card-dark px-5 py-2 rounded-full border-2 border-dark-text dark:border-white/20 shadow-comic transition-transform hover:-rotate-2 cursor-pointer"
         >
           <span className="material-symbols-outlined text-3xl text-primary">emoji_emotions</span>
-          <h2 className="text-lg font-black tracking-tight dark:text-white">Jayendra Malla</h2>
+          <h2 className="text-lg font-black tracking-tight dark:text-black">Jayendra Malla</h2>
         </div>
 
         {/* Desktop Nav */}

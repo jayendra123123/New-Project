@@ -1,88 +1,134 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { SplitText, TextSwap } from '../animations/SplitText';
+import SocialIconHover from '../animations/SocialIconHover';
 
 const Hero = () => {
   return (
-    <section className="w-full flex justify-center py-10 lg:py-20 px-4 sm:px-8">
-      <div className="w-full max-w-[1200px] flex flex-col-reverse lg:flex-row gap-12 items-center">
+    <section className="relative w-full min-h-screen flex items-center justify-center py-20 px-4 sm:px-8 overflow-hidden">
+      {/* Animated Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-blue-500/10 dark:from-primary/5 dark:to-blue-500/5"></div>
+      
+      {/* Floating Shapes */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 left-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      
+      <div className="relative w-full max-w-[1400px] flex flex-col lg:flex-row gap-12 items-center z-10">
         
-        {/* Text Area */}
-        <div className="flex flex-col gap-6 flex-1 text-center lg:text-left items-center lg:items-start z-10">
+        {/* Text Content */}
+        <div className="flex-1 flex flex-col gap-8 text-center lg:text-left items-center lg:items-start">
           
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/20 border-2 border-primary/50 w-fit transform -rotate-2">
-            <span className="material-symbols-outlined text-sm text-black dark:text-yellow-200">
-              auto_awesome
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/30 to-yellow-400/30 border-2 border-primary backdrop-blur-sm transform hover:scale-105 transition-transform">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
             </span>
-            <span className="text-xs font-bold uppercase tracking-wider text-black dark:text-yellow-200">
+            <span className="text-sm font-black uppercase tracking-wider text-dark-text dark:text-white">
               Available for hire
             </span>
           </div>
 
-          {/* Heading */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-black dark:text-white">
-            Hi! I'm Jayendra,<br />
-            <span className="relative inline-block mt-2">
-              <span className="relative z-10 px-2">FULL STACK DEVELOPER</span>
-              <span className="absolute inset-0 bg-primary h-3/5 bottom-1 top-auto -skew-x-6 -z-0 rounded opacity-80"></span>
-            </span>
-          </h1>
+          {/* Main Heading */}
+          <div className="space-y-4">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] tracking-tight">
+              <span className="block text-dark-text dark:text-white">
+                <SplitText delay={0.2}>Hi! I'm</SplitText>
+              </span>
+              <span className="block bg-gradient-to-r from-primary via-yellow-400 to-primary text-white px-2 py-1">
+                <SplitText delay={0.5}>Jayendra</SplitText>
+              </span>
+            </h1>
+            
+            <div className="relative inline-block">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark-text/80 dark:text-white/80">
+                <TextSwap words={['Full Stack Developer', 'Software Engineer', 'Problem Solver', 'Tech Enthusiast']} interval={3000} />
+              </h2>
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent rounded-full"></div>
+            </div>
+          </div>
 
           {/* Description */}
-          <p className="text-lg sm:text-xl font-medium text-black dark:text-white/80 max-w-[500px] leading-relaxed">
-            Solving real-world problems with practical innovation and a passion for technology. Crafting elegant solutions with clean code and innovative thinking.
+          <p className="text-lg sm:text-xl font-medium text-dark-text/70 dark:text-white/70 max-w-[600px] leading-relaxed">
+            <SplitText delay={0.8} stagger={0.02}>
+              Crafting elegant digital solutions with clean code and innovative thinking. Passionate about turning ideas into reality.
+            </SplitText>
           </p>
 
-          {/* Buttons */}
+          {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-4">
             <a 
-              href="#about-me"
-              className="flex items-center gap-2 h-14 px-8 bg-primary text-gray-900 rounded-full border-2 border-dark-text font-black text-lg shadow-comic hover:shadow-comic-hover hover:-translate-y-1 transition-all"
+              href="#work"
+              className="group relative px-8 py-4 bg-primary text-dark-text rounded-full font-black text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.3)] hover:-translate-y-1 transition-all duration-200 overflow-hidden"
+              data-cursor="hover"
             >
-              <span>Read My Story</span>
-              <span className="material-symbols-outlined">arrow_downward</span>
+              <span className="relative z-10 flex items-center gap-2">
+                View My Work
+                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </a>
 
             <a 
-              href="/Resume.pdf" 
-              download="Jayendra_Malla_Resume.pdf"
-              className="flex items-center gap-2 h-14 px-8 bg-white dark:bg-bg-card-dark text-gray-800 dark:text-white rounded-full border-2 border-dark-text dark:border-white/20 font-bold text-lg shadow-comic hover:shadow-comic-hover hover:-translate-y-1 transition-all"
+              href="#contact-form"
+              className="px-8 py-4 bg-white dark:bg-bg-card-dark text-dark-text dark:text-white rounded-full border-2 border-dark-text dark:border-white/20 font-bold text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.3)] hover:-translate-y-1 transition-all duration-200 flex items-center gap-2"
+              data-cursor="hover"
             >
-              <span>Download Resume</span>
+              <span className="material-symbols-outlined">mail</span>
+              Get In Touch
             </a>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex gap-4 mt-4">
+            {[
+              { icon: 'github', href: 'https://github.com/jayendra123123', color: 'hover:bg-gray-800' },
+              { icon: 'linkedin', href: 'https://www.linkedin.com/in/jayendra-malla-1a77b6256/', color: 'hover:bg-blue-600' },
+              { icon: 'code', href: 'https://leetcode.com/u/jayendra_26/', color: 'hover:bg-orange-500' }
+            ].map((social, i) => (
+              <SocialIconHover key={i}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-4 bg-white dark:bg-bg-card-dark rounded-full border-2 border-dark-text dark:border-white/20 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.2)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[5px_5px_0px_0px_rgba(255,255,255,0.3)] hover:-translate-y-1 transition-all text-dark-text dark:text-white ${social.color} hover:text-white hover:border-transparent group`}
+                  data-cursor="hover"
+                >
+                  <span className="material-symbols-outlined text-2xl">{social.icon}</span>
+                </a>
+              </SocialIconHover>
+            ))}
           </div>
         </div>
 
-        {/* Image Area */}
-        <div className="flex-1 w-full max-w-[500px] lg:max-w-none flex justify-center relative">
-          
-          {/* Decorative Floaties */}
-          <div className="absolute top-0 right-0 text-primary animate-bounce delay-700">
-            <span className="material-symbols-outlined text-6xl rotate-12">star</span>
-          </div>
-
-          <div className="absolute bottom-10 left-0 text-gray-400 dark:text-white/20 animate-bounce duration-1000">
-            <span className="material-symbols-outlined text-5xl -rotate-12">draw</span>
-          </div>
-
-          <div className="relative w-full aspect-square max-w-[480px]">
+        {/* Image/Visual Area */}
+        <div className="flex-1 w-full max-w-[600px] relative">
+          {/* Main Card */}
+          <div className="relative bg-gradient-to-br from-white to-gray-100 dark:from-bg-card-dark dark:to-bg-dark rounded-3xl border-4 border-dark-text dark:border-white/20 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)] p-8 overflow-hidden">
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
             
-            {/* Morphing Blobs */}
-            <div className="absolute inset-0 bg-primary rounded-[40%_60%_70%_30%/40%_50%_60%_50%] animate-[spin_10s_linear_infinite] opacity-20 scale-110"></div>
-            <div className="absolute inset-0 bg-primary rounded-[30%_70%_70%_30%/30%_30%_70%_70%] animate-[spin_15s_linear_infinite_reverse] opacity-20 scale-105"></div>
-
             {/* Avatar */}
-            <div
-              className="absolute inset-4 rounded-full border-4 border-dark-text dark:border-white/20 bg-cover bg-center overflow-hidden shadow-comic bg-white"
-              style={{ backgroundImage: `url("image.png")` }}
-            />
-
-            {/* Speech Bubble */}
-            <div className="absolute -top-4 -left-4 bg-white dark:bg-bg-card-dark px-4 py-2 rounded-xl rounded-br-none border-2 border-dark-text dark:border-white/20 shadow-comic transform -rotate-6 z-20">
-              <p className="font-bold text-sm text-gray-800 dark:text-white">
-                Design is fun! ✏️
-              </p>
+            <div className="relative z-10 aspect-square rounded-2xl overflow-hidden border-4 border-dark-text dark:border-white/20 shadow-lg">
+              <img 
+                src="/image.png" 
+                alt="Jayendra Malla" 
+                className="w-full h-full object-cover"
+              />
             </div>
-
+            
+            {/* Floating Stats */}
+            
+            <div className="absolute -bottom-4 -right-4 bg-white dark:bg-bg-card-dark px-6 py-3 rounded-2xl border-2 border-dark-text dark:border-white/20 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] transform rotate-6 z-20">
+              <p className="font-black text-dark-text dark:text-white text-sm">💻 Full Stack</p>
+            </div>
+          </div>
+          
+          {/* Decorative Dots */}
+          <div className="absolute -z-10 top-10 -right-10 grid grid-cols-4 gap-3 opacity-30">
+            {[...Array(16)].map((_, i) => (
+              <div key={i} className="w-3 h-3 bg-primary rounded-full"></div>
+            ))}
           </div>
         </div>
       </div>
